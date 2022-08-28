@@ -1,0 +1,26 @@
+server:
+  port: 9090
+
+spring:
+  cloud:
+    gateway:
+      metrics:
+        enabled: true
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
+# Metrics
+management:
+  endpoint:
+    gateway:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: info, health, metrics, prometheus, gateway
+
+logging:
+  level:
+    org.springframework.web: DEBUG

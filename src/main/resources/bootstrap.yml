@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: expenses-gateway
+
+---
+spring:
+  config:
+    activate:
+      on-profile: production
+    import: configserver:http://localhost:9080
+
+---
+spring:
+  cloud:
+    config:
+      enabled: false
+  config:
+    activate:
+      on-profile: local
